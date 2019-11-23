@@ -30,14 +30,13 @@ const Carousel = (props) =>{
       };
 
     const url1="http://image.tmdb.org/t/p/w342";
-    let carousel=<div>...</div>;
+    let carousel=<div>...</div>; //Spinner
 
     if (props.state!=null){
         carousel=
         <CarouselComponent  responsive={responsive}   >
               {props.state.map(event=>(              
-                  <div>
-                    <div>{event.title}</div>
+                  <div key={event.id}>
                     <img  width='90%' src={url1+event.path} alt="Unable to load"/>
                   </div>
               ))}

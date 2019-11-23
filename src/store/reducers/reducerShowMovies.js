@@ -7,12 +7,37 @@ const initialState={
 
 
 const getPopularMovieSuccess = (state,action) =>{
-
-    console.log(action.events);
-
+    console.log(action.data);
         return{
             ...state,
-            popular:action.events
+            popularMovies:action.data
+            };
+           
+};
+
+const getPopularSeriesSuccess = (state,action) =>{
+    console.log(action.data);
+        return{
+            ...state,
+            popularSeries:action.data
+            };
+           
+};
+
+const getGenreFamilySuccess = (state,action) =>{
+    console.log(action.data);
+        return{
+            ...state,
+            genreFamily:action.data
+            };
+           
+};
+
+const getGenreDocumentarySuccess = (state,action) =>{
+    console.log(action.data);
+        return{
+            ...state,
+            genreDocumentary:action.data
             };
            
 };
@@ -20,6 +45,9 @@ const getPopularMovieSuccess = (state,action) =>{
 const reducer = (state=initialState,action) => {
     switch(action.type){
          case(actionTypes.GET_POPULAR_MOVIES_SUCCESS): return getPopularMovieSuccess(state,action);
+         case(actionTypes.GET_POPULAR_SERIES_SUCCESS): return getPopularSeriesSuccess(state,action);
+         case(actionTypes.GET_GENRE_FAMILY_SUCCESS): return getGenreFamilySuccess(state,action);
+         case(actionTypes.GET_GENRE_DOCUMENTARY_SUCCESS): return getGenreDocumentarySuccess(state,action);
         default: return state;
     }
 };
