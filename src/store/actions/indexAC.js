@@ -1,0 +1,2 @@
+export {getMovies,
+} from './actionShowMovies';
