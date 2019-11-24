@@ -14,25 +14,30 @@ class MainPage extends Component{
 
         return(
             //Calling same component multiple times and sending diferent props
+            //Send props state-data from redux and type-which
             <div>
             <div>Popular movies</div>
             <Carousel 
                 state={this.props.popularMoviesState}
+                type='popularMovies'
             />
 
             <div>Popular series</div>
             <Carousel 
                 state={this.props.popularSeriesState}
+                type='popularShows'
             />
 
             <div>Family</div>
             <Carousel 
                 state={this.props.genreFamilyState}
+                type='genreFamily'
             />
 
             <div>Documentary</div>
             <Carousel 
                 state={this.props.genreDocumentaryState}
+                type='genreDocumentary'
             />
             </div>
         )
