@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
+import ShakaPlayer from '../../components/ShakaPlayer/ShakaPlayer';
+
 class Details extends Component {
 
     state={
         urlBase:"http://image.tmdb.org/t/p/w342",
         type:this.props.location.state.type,
         id:this.props.location.state.id,
-        stateList:null
+        stateList:null,
+        player:null
         }
 
     componentDidMount=()=>{
@@ -21,6 +24,11 @@ class Details extends Component {
                 default:return null;
             }
         }
+    }
+
+    onWatchMovieHandler = () =>{
+        console.log("Clicked Watch movie");
+        this.setState({player:<ShakaPlayer />});
     }
 
     render(){
@@ -45,13 +53,14 @@ class Details extends Component {
                         <div>release_date: {this.state.stateList[this.state.id].release_date}</div>
                         <div>vote_average: {this.state.stateList[this.state.id].vote_average}</div>
                         <div>vote_count: {this.state.stateList[this.state.id].vote_count}</div>
-                        <button>Watch Movie</button>
+                        <button onClick={()=>this.onWatchMovieHandler()}>Watch Movie</button>
 
 
                         <img  width='50%' src={this.state.urlBase+this.state.stateList[this.state.id].path} alt="Unable to load"/>
                 </div>
                 : null   
             }
+        {this.state.player}
         </div>
 
     )
