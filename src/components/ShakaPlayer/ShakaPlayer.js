@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import shaka from 'shaka-player';
+import muxjs from "mux.js";
 
-// var manifestUri = '//storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd';
-// var manifestUri = 'https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8';
 var manifestUri = 'https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8';
 
 class Main extends Component {
 
 	componentDidMount() {
+		window.muxjs=muxjs;
 	  	// Install built-in polyfills to patch browser incompatibilities.
 		shaka.polyfill.installAll();
 
 		// Check to see if the browser supports the basic APIs Shaka needs.
 		if (shaka.Player.isBrowserSupported()) {
-		// Everything looks good!
+    		// Everything looks good!
+    		console.log("BROWSER SUPPORTED");
 			this.initPlayer();
 		} else {
 			// This browser does not have the minimum set of APIs we need.
@@ -22,6 +23,8 @@ class Main extends Component {
 	}
 
 	initPlayer(){
+		console.log("init player")
+
 		var player = new shaka.Player(this.refs.video);
 
 		// Listen for error events.
@@ -56,7 +59,7 @@ class Main extends Component {
 	    	<div>
 		    	<h2>Player</h2>
 		    	<video ref="video"
-	           	width="640"
+				   width="320"
 	       			poster="//shaka-player-demo.appspot.com/assets/poster.jpg"
 	           	controls autoPlay>
 	       		</video>
