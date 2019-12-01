@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import * as actionCreator from "../store/actions/actionFiles/indexAC";
 import Carousel from "../components/Carousel";
 
-class MainPage extends Component {
+export class MainPage extends Component {
 
 //trigers action to get resources from Movie database with API key
   componentDidMount() {

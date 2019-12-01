@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -20,6 +21,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 
 // importing and implementing redux-thunk to enable action creator to return function insted of object (for dispatch method)
 import thunk from 'redux-thunk';
+
 
 //Redux DevTools extension. Enable to see redux state in browser extension
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
