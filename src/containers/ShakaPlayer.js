@@ -72,10 +72,9 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <h2>Player</h2>
         <video
           ref="video"
-          width="1024"
+          width="500vmin"
           poster="//shaka-player-demo.appspot.com/assets/poster.jpg"
           controls
           autoPlay

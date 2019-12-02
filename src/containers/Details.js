@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Auxx from '../hoc/Auxx';
 
 import ShakaPlayer from "./ShakaPlayer";
 
@@ -11,7 +12,105 @@ class Details extends Component {
     type: this.props.location.state.type,
     id: this.props.location.state.id,
     stateList: null,
-    player: null
+    player: null,
+
+    styleBtn:{
+      padding:'12px',
+      backgroundColor:'rgba(0,0,0,0)',
+      color:'rgb(255,255,255)',
+      fontSize:'1.5vmax',
+      fontWeight:'bold',
+      cursor: 'pointer',
+      border: '1px solid rgb(255,255,255)',
+      outline: 'none',
+      boxShadow: '0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+      textTransform: 'uppercase',
+    },
+
+    landscape:{
+      containerDiv:{
+        height:'100vh',
+        display: 'flex',
+        justifyContent: 'space-around'
+      },
+
+      containerText:{
+        width: '49%',
+        float:'left'
+      },
+
+      containerImg:{
+        width: '40%',
+        position:'relative',
+        textAlign: 'center'
+      },
+
+      styleImg:{
+        width:'50vmin',
+        margin: '10vmin 0 0 0',
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
+      },
+
+      styleH1:{
+        color:'white',
+        fontSize:'3vw',
+        textAlign: 'left'
+      },
+
+      styleH2:{
+        color:'white',
+        fontSize:'1.5vw',
+        textAlign: 'left'
+      },
+
+      styleH3:{
+        color:'rgba(255,255,255,0.5)',
+        fontSize:'1.3vw',
+        textAlign: 'left'
+      },
+
+
+    },
+
+    portrait:{
+
+      containerDiv:{
+        display:'inline-box',
+        justifyContent: 'space-around'
+      },
+
+      containerText:{
+        width: '95vw',
+        padding:'2vmin'
+      },
+
+      containerImg:{
+        width: '99vw',
+        textAlign: 'center'
+      },
+
+      styleImg:{
+        width:'40vmax',
+        padding: '10vmin 0 0 0'
+      },
+
+      styleH1:{
+        color:'white',
+        fontSize:'3vh',
+      },
+
+      styleH2:{
+        color:'white',
+        fontSize:'1.5vh',
+      },
+
+      styleH3:{
+        color:'rgba(255,255,255,0.5)',
+        fontSize:'1.3vh',
+      }
+    },
+
+
   };
 
   componentDidMount = () => {
@@ -54,57 +153,71 @@ class Details extends Component {
   };
 
   render() {
+
+    // Getting screen oriontation from window and apply different styles to make page responsive
+    let styleOrientation=null;
+
+    if(window.matchMedia("(orientation: landscape)").matches){
+      styleOrientation=this.state.landscape;
+    }
+    else{
+      styleOrientation=this.state.portrait;
+    }
+
+
     return (
-      <div>
-        {(this.state.stateList !== null) & (this.state.stateList !== undefined) ? (
-          <div>
+      <Auxx>
+        {(this.state.stateList !== null) & (this.state.stateList !== undefined) & (styleOrientation!=null) ? (
 
-            <div>
-                Title:  {this.state.stateList[this.state.id].title}
+          <div style={styleOrientation.containerDiv}>
+
+            <div style={styleOrientation.containerText}>
+
+              <h1 style={styleOrientation.styleH1}>Title:
+                    {" "+this.state.stateList[this.state.id].title}</h1>
+
+              <h2 style={styleOrientation.styleH2}>Description: 
+                    {" "+this.state.stateList[this.state.id].description}</h2>
+
+              <h3 style={styleOrientation.styleH3}>Genre: 
+                    {" "+this.state.stateList[this.state.id].genre_ids}</h3>
+
+              <h3 style={styleOrientation.styleH3}>Original title: 
+                    {" "+this.state.stateList[this.state.id].original_title}</h3>
+
+              <h3 style={styleOrientation.styleH3}>Original language: 
+                    {" "+this.state.stateList[this.state.id].original_language}</h3>
+
+              <h3 style={styleOrientation.styleH3}>Release date: 
+                    {" "+this.state.stateList[this.state.id].release_date}</h3>
+
+              <h3 style={styleOrientation.styleH3}>Vote average: 
+                    {" "+this.state.stateList[this.state.id].vote_average}</h3>
+
+              <h3 style={styleOrientation.styleH3}>Vote count: 
+                    {" "+this.state.stateList[this.state.id].vote_count}</h3>
+
+              <button style={this.state.styleBtn} onClick={() => this.onWatchMovieHandler()}>Watch Movie</button>
             </div>
 
-            <div>
-                Description: {this.state.stateList[this.state.id].description}
-            </div>
 
-            <div>
-                Genre: {this.state.stateList[this.state.id].genre_ids}
-            </div>
+            <div style={styleOrientation.containerImg}>
 
-            <div>
-                original_title: {this.state.stateList[this.state.id].original_title}
-            </div>
-
-            <div>
-                original_language: {this.state.stateList[this.state.id].original_language}
-            </div>
-
-            <div>
-                release_date: {this.state.stateList[this.state.id].release_date}
-            </div>
-
-            <div>
-                vote_average: {this.state.stateList[this.state.id].vote_average}
-            </div>
-
-            <div>
-                vote_count: {this.state.stateList[this.state.id].vote_count}
-            </div>
+              <img
+                style={styleOrientation.styleImg}
+                src={this.state.urlBase + this.state.stateList[this.state.id].path}
+                alt="Unable to load"
+              />
+              </div>
 
 
-            <button onClick={() => this.onWatchMovieHandler()}>Watch Movie</button>
-
-            <img
-              width="30%"
-              src={this.state.urlBase + this.state.stateList[this.state.id].path}
-              alt="Unable to load"
-            />
           </div>
+
         ) : null}
 
         {this.state.player}
 
-      </div>
+      </Auxx>
     );
   }
 }

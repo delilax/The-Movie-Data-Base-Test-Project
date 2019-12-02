@@ -61,7 +61,8 @@ const Carousel = props => {
               state: { type: props.type, id: event.id }
             }}
           >
-            <img
+            <img 
+              style={{boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19)'}}
               width="90%"
               src={url1 + event.path}
               alt="Unable to load"
