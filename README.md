@@ -8,23 +8,24 @@ It contains:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
 ## Dependencies:
 
 ### React Redux
     State container for JavaScript/React applications.
-    [React Redux]: (https://github.com/reduxjs/react-redux.git)
+    [React Redux] (https://github.com/reduxjs/react-redux.git)
 
 ### React Router
     Naavigation components.
-    [React Router]: (https://github.com/ReactTraining/react-router.git)
+    [React Router] (https://github.com/ReactTraining/react-router.git)
 
 ### Redux thunk
     Thunk middleware for Redux. Lets you call action creators that return a function instead of an action object.
-    [Redux thunk]: (https://github.com/reduxjs/redux-thunk.git)
+    [Redux thunk] (https://github.com/reduxjs/redux-thunk.git)
 
 ### Redux persist
     Persist and rehydrate a redux store.
-    [Redux persist]: (https://github.com/rt2zz/redux-persist.git)
+    [Redux persist] (https://github.com/rt2zz/redux-persist.git)
 
 ### Axios
     Promise based HTTP client for the browser and node.js
@@ -40,7 +41,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     [React Multi Carousel]: (https://github.com/YIZHUANG/react-multi-carousel.git)
 
 ### React Loader Spinner
-    Provides simple React.js spinner component which can be implemented for async wait operation before data load to the view.
+    Provides simple React.js spinner component which can be implemented for async wait operation before data load 
+    to the view.
     [React Loader Spinner]: (https://github.com/mhnpd/react-loader-spinner.git)
 
 ### Shaka Player
@@ -56,7 +58,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Content:
 
 ### src/index.js
-    Contains impelentation of React, Redux, middleware thunk, redux persist. Creation of redux store, combine reduceers and creation of app.
+    Contains impelentation of React, Redux, middleware thunk, redux persist. Creation of redux store, combine 
+    reduceers and creation of app.
 
 ### src/App.js
     In App.js are defined Routes, Layout of application and imported main components: MainPage, Details and Search.
@@ -120,7 +123,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     Shows input element and search button. After loaded list of movies/shows render carousel with images.
 
     Search container is connected to Redux store to:
-        - trigger action to get list from API response and save it in Redux store. Sending text from input (user input) to action as props,
+        - trigger action to get list from API response and save it in Redux store. Sending text from input 
+        (user input) to action as props,
         - get lists of movies/shows from Redux store that contain text from input.
         
     Importing: 
@@ -159,10 +163,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     ActionTypes.js contains constant that is used in action and reducer as type. Eliminates typing errors.
 
 #### getDataMoviesShows.js
-    getDataMoviesShows.js contains function to manipulate with response data and prepare it to be stored in redux state add array of objects.
+    getDataMoviesShows.js contains function to manipulate with response data and prepare it to be stored in 
+    redux state add array of objects.
 
 #### indexAC.js
-    indexAC.js exporting actions. It is good use beacuse you inport just this where is needed to dispatch to actions (MainPage.js, Search.js)
+    indexAC.js exporting actions. It is good use beacuse you inport just this where is needed to dispatch to 
+    actions (MainPage.js, Search.js)
 
 #### actionShowList.js
     actionShowList.js is Redux action component.
