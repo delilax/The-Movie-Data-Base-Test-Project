@@ -1,6 +1,8 @@
 import React from "react";
 import CarouselComponent from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Link } from "react-router-dom";
 
 const Carousel = props => {
@@ -42,7 +44,15 @@ const Carousel = props => {
   const url1 = "http://image.tmdb.org/t/p/w342";
 
   // Spinner implementation to show while loading content
-  let carousel = <div>...</div>; //Spinner
+  let carousel = (
+    <Loader
+      type="ThreeDots"
+      color="rgb(155, 30, 45)"
+      height={10}
+      width={50}
+      timeout={30000}
+    />
+  );
 
   // Checking if state in redux is downloaded from API. If data is loaded it can map the state
   // Loading CarouselComponent installed by "react-multi-carousel"
@@ -61,8 +71,11 @@ const Carousel = props => {
               state: { type: props.type, id: event.id }
             }}
           >
-            <img 
-              style={{boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19)'}}
+            <img
+              style={{
+                boxShadow:
+                  "0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 8px 0 rgba(0, 0, 0, 0.19)"
+              }}
               width="90%"
               src={url1 + event.path}
               alt="Unable to load"

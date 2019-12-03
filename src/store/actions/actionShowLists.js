@@ -119,8 +119,7 @@ export const getMoviesShows = () => {
 
         for (let key in res) {
           getResultData.push({
-            ...res[key],
-            id: key
+            ...res[key]
 
           });
         }
@@ -145,7 +144,6 @@ export const getMoviesShows = () => {
         for (let key in res) {
           getResultData.push({
             ...res[key],
-            id: key
             
           });
         }

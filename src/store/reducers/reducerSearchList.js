@@ -10,11 +10,9 @@ const getSearchedListSuccess = (state, action) => {
   };
 };
 
-
 //Reducer
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-
     case actionTypes.GET_SEARCHED_LIST_SUCCESS:
       return getSearchedListSuccess(state, action);
 

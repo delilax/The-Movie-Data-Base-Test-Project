@@ -47,25 +47,24 @@ const getLanguageSuccess = (state, action) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-      
     case actionTypes.GET_POPULAR_MOVIES_SUCCESS:
       return getPopularMovieSuccess(state, action);
-      
+
     case actionTypes.GET_POPULAR_SERIES_SUCCESS:
       return getPopularSeriesSuccess(state, action);
-      
+
     case actionTypes.GET_GENRE_FAMILY_SUCCESS:
       return getGenreFamilySuccess(state, action);
-      
+
     case actionTypes.GET_GENRE_DOCUMENTARY_SUCCESS:
       return getGenreDocumentarySuccess(state, action);
-      
+
     case actionTypes.GET_GENRE_SUCCESS:
       return getGenreSuccess(state, action);
-      
+
     case actionTypes.GET_LENGUAGE_SUCCESS:
       return getLanguageSuccess(state, action);
-      
+
     default:
       return state;
   }

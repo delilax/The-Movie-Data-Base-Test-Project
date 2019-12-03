@@ -4,42 +4,45 @@ import * as actionCreator from "../store/actions/actionFiles/indexAC";
 import Carousel from "../components/Carousel";
 
 export class MainPage extends Component {
-
-  state={
-    styleText:{
-      position: 'relative',
-      height: '5vmin',
-      padding: '1vmin 0 1vmin 5vmin',
-      textAlign: 'left',
-      color:'white',
-      font:'Arial, sans-serif',
-      fontSize:'2.5vmin',
-      fontStyle: 'bold',
-      textDecoration: 'none'
+  state = {
+    styleText: {
+      position: "relative",
+      height: "5vmin",
+      padding: "1vmin 0 1vmin 5vmin",
+      textAlign: "left",
+      color: "white",
+      font: "Arial, sans-serif",
+      fontSize: "2.5vmin",
+      fontStyle: "bold",
+      textDecoration: "none"
     },
 
-    styleTitle:{
-      position: 'relative',
-      height: '5vmin',
-      padding: '3vmin',
-      textAlign: 'left',
-      textTransform: 'uppercase',
-      color:'white',
-      font:'Arial, sans-serif',
-      fontSize:'2.5vmin',
-      fontStyle: 'bold',
-      textDecoration: 'none'
+    styleTitle: {
+      position: "relative",
+      height: "5vmin",
+      padding: "3vmin",
+      textAlign: "left",
+      textTransform: "uppercase",
+      color: "white",
+      font: "Arial, sans-serif",
+      fontSize: "2.5vmin",
+      fontStyle: "bold",
+      textDecoration: "none"
     },
 
-    styleContainerCarousel:{
-      position:'relative',
-      padding:'3vmin'
+    styleContainerCarousel: {
+      position: "relative",
+      padding: "3vmin"
     }
-  }
-  
-//trigers action to get resources from Movie database with API key
+  };
+
+  //trigers action to get resources from Movie database with API key
   componentDidMount() {
-    this.props.onGetMoviesShows();
+    try {
+      this.props.onGetMoviesShows();
+    } catch (err) {
+      console.log("Error dispatch to actions"+err);
+    }
   }
 
   render() {
@@ -50,38 +53,36 @@ export class MainPage extends Component {
       //  - type-which is used to load details of clicked element
 
       <div>
-        <h1 style={this.state.styleTitle}>Test Project - Movie Database</h1>
+        <h1 style={this.state.styleTitle}>The Movie Database - Test Project</h1>
 
         <h2 style={this.state.styleText}>Popular movies</h2>
 
         <div style={this.state.styleContainerCarousel}>
-          <Carousel 
-              state={this.props.popularMoviesState} 
-              type="popularMovies" />
+          <Carousel
+            state={this.props.popularMoviesState}
+            type="popularMovies"
+          />
         </div>
 
         <h2 style={this.state.styleText}>Popular series</h2>
 
         <div style={this.state.styleContainerCarousel}>
-        <Carousel 
-            state={this.props.popularSeriesState} 
-            type="popularShows" />
+          <Carousel state={this.props.popularSeriesState} type="popularShows" />
         </div>
 
         <h2 style={this.state.styleText}>Family</h2>
 
         <div style={this.state.styleContainerCarousel}>
-        <Carousel 
-            state={this.props.genreFamilyState} 
-            type="genreFamily" />
+          <Carousel state={this.props.genreFamilyState} type="genreFamily" />
         </div>
 
         <h2 style={this.state.styleText}>Documentary</h2>
 
         <div style={this.state.styleContainerCarousel}>
-        <Carousel
+          <Carousel
             state={this.props.genreDocumentaryState}
-            type="genreDocumentary"/>
+            type="genreDocumentary"
+          />
         </div>
       </div>
     );
