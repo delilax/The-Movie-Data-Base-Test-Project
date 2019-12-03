@@ -152,6 +152,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 #### Layout.js
     Layout.js wrapped around App to show. Shows Header and Footer.
+    Receive child components and render it without changes.
 
     Importing: 
         - Header.js,
@@ -184,7 +185,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     - List of genres (use it to show name of genres in Details.js),
     - List of languages (use it to show name of original language in Details.js).
 
- Importing: 
+    Importing: 
         - ActionTypes.js
         - getDataMoviesShows.js
 
@@ -197,7 +198,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     Getting:
     - List of movies/shows by keyword inputed by user.
 
- Importing: 
+    Importing: 
         - ActionTypes.js,
         - getDataMoviesShows.js.
 
