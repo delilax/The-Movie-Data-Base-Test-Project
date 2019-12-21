@@ -29,7 +29,8 @@
     "lint": "eslint src/**/*.js src/**/*.jsx"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "eslint-plugin-shaka-rules": "file:./build/eslint-plugin-shaka-rules"
   },
   "browserslist": {
     "production": [
