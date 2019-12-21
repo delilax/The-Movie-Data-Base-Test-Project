@@ -20,7 +20,6 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "shaka-player": "^2.5.6",
-    "shaka-player-react": "^1.0.1",
     "thunk": "0.0.1"
   },
   "scripts": {
@@ -31,8 +30,7 @@
     "lint": "eslint src/**/*.js src/**/*.jsx"
   },
   "eslintConfig": {
-    "extends": "react-app",
-    "eslint-plugin-shaka-rules": "file:./shaka-player/build/eslint-plugin-shaka-rules"
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
