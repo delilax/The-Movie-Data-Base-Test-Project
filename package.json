@@ -30,7 +30,7 @@
   },
   "eslintConfig": {
     "extends": "react-app",
-    "eslint-plugin-shaka-rules": "file:./build/eslint-plugin-shaka-rules"
+    "eslint-plugin-shaka-rules": "file:./shaka-player/build/eslint-plugin-shaka-rules"
   },
   "browserslist": {
     "production": [
