@@ -19,6 +19,7 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "shaka-player": "file:shaka-player",
+    "shaka-player-react": "^1.0.1",
     "thunk": "0.0.1"
   },
   "scripts": {
