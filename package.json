@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
+    "core.js": "^0.4.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "mux.js": "^5.5.1",
@@ -18,7 +19,7 @@
     "redux": "^4.0.4",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
-    "shaka-player": "file:shaka-player",
+    "shaka-player": "^2.5.6",
     "shaka-player-react": "^1.0.1",
     "thunk": "0.0.1"
   },
